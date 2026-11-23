@@ -1,0 +1,119 @@
+============================================================
+  CerebroNico IDE v1.53.1 - LEEME PRIMERO
+============================================================
+
+DOCUMENTACION
+  Todo lo escrito viaja dentro de este ZIP, indexado en
+      INDICE-DOCUMENTACION-v2.2.0.md   (con sha256 de cada documento)
+  y el expediente de validacion en
+      documentacion/informes-v2.2.0/
+
+QUE ES ESTO
+  El proyecto completo. NO trae node_modules (son ~450 MB de
+  dependencias que se reconstruyen con un comando). Por eso hay
+  que instalar una vez antes de arrancar.
+
+ESTE ZIP YA NO TRAE CARPETA INTERNA
+  Los archivos estan en la RAIZ: package.json, server.ts,
+  iniciar_todo_windows.bat... Comprueba que ves "package.json"
+  en la MISMA carpeta desde la que abres la consola. Si ves una
+  carpeta "Cerebronico-v1.53.1" y dentro los archivos, entraste
+  un nivel de mas: ese es el error ENOENT de npm.
+
+------------------------------------------------------------
+OPCION A - LA MAS FACIL (recomendada)
+------------------------------------------------------------
+  Doble clic a:
+
+      iniciar_todo_windows.bat
+
+  Ese lanzador encadena todo en orden y no hay que instalar nada
+  a mano:
+     1) Ollama en :11434 (keep-alive 5m, no queda clavado en RAM)
+     2) npm install SOLO si falta node_modules
+     3) memoria hibrida en :5100        (opcional)
+     4) pack creador de sitios en :5102 (opcional)
+     5) npm run dev            <- con Vite (primera carga lenta)
+        o npm run dev:sin-vite  <- SIN Vite en el proceso, recomendado
+                                  en maquinas con poca RAM
+                                                              ->  IDE :3000 + puente :5000
+
+  Si alguno de los servicios opcionales no arranca, la IDE arranca
+  IGUAL.
+
+------------------------------------------------------------
+OPCION B - A MANO
+------------------------------------------------------------
+  En la carpeta donde ESTA ESTE ARCHIVO (la que tiene
+  package.json), abre la consola y ejecuta:
+
+      npm install
+      npm run dev            (con Vite; primera carga lenta)
+      npm run dev:sin-vite   (o sin Vite en el proceso: pre-compile el
+                             frente y corre la fuente con NODE_ENV=production)
+
+  Y abre en el navegador:
+
+      http://127.0.0.1:3000
+
+  Si npm install da ENOENT / "no such file or directory
+  package.json": estas en la carpeta equivocada. Ejecuta "dir"
+  y comprueba que package.json aparece listado.
+
+------------------------------------------------------------
+COMPROBAR QUE ARRANCO BIEN
+------------------------------------------------------------
+  En el log de consola deben salir las tres lineas del inventario
+  de herramientas, con los NOMBRES (no solo el numero):
+
+   [tools] Pack externo "puente-mcp" cargado con 4 herramienta(s): ...
+   [tools] Pack externo "creador-web" cargado con 31 herramienta(s): ...
+   [tools] Pack externo "memoria-hindsight" cargado con 19 herramienta(s): ...
+
+  Si aparece "aun no responde en ... Reintento 2/12 en 5 s" es
+  NORMAL: el servicio esta levantando y se reintenta solo.
+
+  Para auditar el inventario en vivo, con la IDE arrancada abre:
+
+      http://127.0.0.1:3000/api/tools/packs/estado
+
+  Y para recargar los packs sin reiniciar:
+
+      http://127.0.0.1:3000 -> pestana Puertos -> Reconectar
+
+------------------------------------------------------------
+DOCUMENTACION
+------------------------------------------------------------
+  README.md                        guia general
+  CHANGELOG.md                     que cambio en cada version
+  documentacion/historico-actualizaciones/ (archivado)          pasos de actualizacion
+  autovalido.md   auditoria de los problemas
+                                   reportados en tus sesiones
+  LEEME-EMPAQUETADO.md             como se empaqueta el instalador
+  npm run validar                  la puerta de calidad del proyecto
+
+  documentacion/historico-actualizaciones/ (archivado) es la guia de esta version. Las guias de
+  versiones viejas (v1.45.x e informes antiguos) viven ahora en
+  documentacion\historico-actualizaciones\ para no saturar la raiz.
+
+  EL CEREBRO (memoria de largo plazo) — dos procesos, no uno
+  ----------------------------------------------------------
+  :5103  motor del cerebro    cerebro_motor.py
+         guarda los hechos, las paginas y las contradicciones.
+         Almacen: C:\Cerebronico\.cerebro-db\cerebro-motor.json
+         (fuera de la instalacion: sobrevive a cualquier actualizacion)
+
+  :5100  daemon de memoria    hindsight_daemon.py
+         es la puerta MCP que usa el modelo. No guarda nada:
+         lee del motor por HINDSITE_API_URL=http://127.0.0.1:5103
+
+  Si memory_* devuelve menos de lo esperado, mira /health del :5100:
+  backend "espejo-local" significa que el motor no responde.
+
+  Arranque: el .bat lanza el motor con CN_CEREBRO_MOTOR y SIN --store
+  (ese argumento no existe y lo mataba al instante, sin dejar log).
+  Prueba real: reiniciar Windows sin tocar nada y ver los dos puertos
+  arriba con motor.log fechado despues del arranque.
+
+  Manual: manual-motor\manual-completo.md seccion 14 (arquitectura,
+  endpoints, consolidacion, alias y sintomas con su causa raiz).
