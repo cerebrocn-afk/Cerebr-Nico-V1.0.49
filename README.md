@@ -10,10 +10,9 @@
 > **Copyright © 2026 Mario Nicolas Quintero Marin.** Todos los derechos reservados.
 > Versión de paquete 1.0.0 (línea base del proyecto en funcionamiento real).
 
-## Mapa de documentos — UN archivo por tipo (unificación v1.0.0)
+## Mapa de documentos — 
 
-«Que no haya varios CHANGELOG: la información centralizada en un archivo por cada
-documento» (Mario, 24/10). El papeleo vive una sola vez, acá:
+
 
 | Qué | Dónde (único) |
 |---|---|
@@ -41,7 +40,7 @@ IDE de alto rendimiento para ingeniería de software autónomo con inferencia lo
 
 - **[Z.ai](https://z.ai)** — Acceso al modelo GLM-4.5-Flash (gratis, sin tarjeta) que
   permitió prototipar, depurar y validar el motor agéntico sin gastar un centavo.
-- **[Z.ai Work / Accio Work](https://z.ai)** — El entorno de trabajo (workbench) sobre
+- **[ Accio Work](https://z.ai)** — El entorno de trabajo (workbench) sobre
   el que se ensamblaron, probaron y empaquetaron casi todas las iteraciones de la IDE.
 - **[Google AI Studio](https://aistudio.google.com)** — Donde se modelaron, midieron y
   afinaron los prompts y los flujos del Cerebro antes de pasarlos al motor local.
@@ -84,11 +83,9 @@ Tres reglas que lo hacen seguro de usar:
 - **No abre servidores ni puertos por su cuenta.** `previsualizar_sitio` explica
   cómo hacerlo; quien decide es el usuario.
 
-## Panel de Tareas: ya no tapa los botones (v1.20.0)
+## Panel de Tareas: 
 
-El panel de tareas del motor estaba fijo arriba a la derecha y su caja se comía los
-clics del pie de cada burbuja («Escuchar»/«Copiar») y del compositor. Ahora el
-contenedor ignora punteros (solo el botón y la hoja reciben eventos), la hoja abre
+El panel de tareas del motor (solo el botón y la hoja reciben eventos), la hoja abre
 debajo con `top-full`, y al abrirse publica `--cn-tareas-gutter`: la lista de mensajes
 y el compositor consumen ese ancho como margen, la columna se aparta y los botones
 quedan libres. Con el panel cerrado la variable vale `0px` — nada se desplaza.
@@ -96,15 +93,9 @@ quedan libres. Con el panel cerrado la variable vale `0px` — nada se desplaza.
 Guías: `skills/cerebronico-creador`, `skills/cerebronico-creador-bucle` y
 `skills/cerebronico-web-qa`.
 
-## Editor web: solo el previsualizador (v1.60.15)
+## Editor web:  previsualizador 
 
-La vista del editor web mostraba a la izquierda un recuadro «Editor Web & IA»
-(campo de instrucciones + bloques rápidos + registro «Actividad del agente» con
-su botón Limpiar) y, a la derecha, el previsualizador, separados por un
-desplazador de ancho y un botón Mostrar/Ocultar IA. Ese panel duplicaba lo que
-ya ocurre en el chat central: las órdenes del editor se dan ahí (chip «Editor
-ON»), que es el único punto de entrada, y la actividad del agente también se ve
-en el propio chat.
+
 
 Desde v1.60.15 ese recuadro se eliminó por completo. El editor web es ahora
 **solo la mesa de trabajo**: barra superior + previsualizador a todo el ancho.
