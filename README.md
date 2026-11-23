@@ -97,7 +97,7 @@ Guías: `skills/cerebronico-creador`, `skills/cerebronico-creador-bucle` y
 
 
 
-Desde v1.60.15 ese recuadro se eliminó por completo. El editor web es ahora
+ El editor web es ahora
 **solo la mesa de trabajo**: barra superior + previsualizador a todo el ancho.
 No hay panel izquierdo, ni desplazador, ni botón Mostrar/Ocultar IA. Con el
 panel se fueron sus estados y helpers internos (ancho persistido, arrastre,
@@ -149,7 +149,7 @@ Análisis del ecosistema compatible: `documentacion/ANALISIS_BUNDLE_TOP_REPOS_v1
 
 ## Arranque
 
-**Prerequisitos:** Node.js 18+ y (opcional) Python 3.8+ y Ollama.
+**Prerequisitos:** Node.js 18+ y (opcional) Python 3.8+ y Ollama opcional .
 
 ```bash
 npm install
@@ -209,7 +209,7 @@ Salida esperada: `OVERALL: ALL PASS` con 8 tests (ollama_short, ollama_long,
 openrouter, custom_provider, gemini_fallback, python_bridge, regression_old_bug,
 regression_new_code).
 
-## Servidores MCP (v1.16.1) — navegación web por el puente
+## Servidores MCP  — navegación web por el puente
 
 El puente Python (:5000) habla **MCP (Model Context Protocol)**: lee
 `mcp_servers.json`, lanza cada servidor como proceso stdio (JSON-RPC, 100 %
@@ -241,7 +241,7 @@ debe estar en `binarios_permitidos` de `puente-permitidos.json`) y
 MCP a propósito: existe para máquinas sin Python, donde un servidor stdio no
 puede correr — exponerlo allí sería una capacidad falsa.
 
-## Autonomía sin humano (v1.16.2)
+## Autonomía sin humano 
 
 Tres piezas ejecutables, todas verificadas por `npm run test:autonomia` (28 comprobaciones con procesos reales):
 
