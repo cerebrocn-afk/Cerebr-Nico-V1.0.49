@@ -394,9 +394,8 @@ Este software es propiedad intelectual de Mario Nicolas Quintero Marin. Queda pr
 
 ## 馃摓 Contacto
 
-**Mario Nicolas Quintero Marin**  
+**Mario  Quintero**  
 [Perfil GitHub](https://github.com/cerebrocn-afk)  
-[Email](mailto:mario.nicolas.quintero.marin@gmail.com)  
 [Email Principal](mailto:cerebrocn@gmail.com)
 
 ---
