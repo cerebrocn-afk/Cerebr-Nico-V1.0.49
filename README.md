@@ -7,6 +7,8 @@
 **馃殌 IDE de alto rendimiento para ingenier铆a de software aut贸noma**
   
 **Combina inferencia local (Ollama) con aceleraci贸n en la nube (Gemini, OpenRouter)**
+
+  Prueba demo en servidor (https://cerebronico-v1-0-49.ai.studio)
   
 [![Version](https://img.shields.io/badge/v1.0.49-blue)](https://github.com/cerebrocn-afk/Cerebr-Nico-V1.0.49/releases)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](https://github.com/cerebrocn-afk/Cerebr-Nico-V1.0.49/blob/main/LICENSE)
